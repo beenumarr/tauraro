@@ -97,3 +97,4 @@
 1. **Emphasize Offline Independence:** Judges always ask: *"What if the internet drops?"* Point out that TAURARO has a 100% offline deterministic engine that requires zero external connectivity to evaluate risk and run CPR.
 2. **Stress Non-Doctor Usability:** Point to the anatomical body twin and plain-language SBAR summaries—every screen was designed specifically for engineers and pilots under high stress, not medical doctors.
 3. **Demonstrate the Audio Metronome:** In any live demo, actually click the 110 BPM button so the judges hear the metronome beeping. It instantly elevates the presentation from a theoretical concept to an active emergency device.
+

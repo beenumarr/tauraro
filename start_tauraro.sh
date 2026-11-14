@@ -65,3 +65,4 @@ echo ""
 
 # Keep launcher process running to handle trap
 wait
+
