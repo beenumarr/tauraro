@@ -155,3 +155,40 @@ class EvaluationResponse(BaseModel):
     sbar_ground_packet: str = Field(description="Structured Situation-Background-Assessment-Recommendation transmission packet")
     store_and_forward_queue_count: int = Field(default=0, ge=0, description="Number of packets queued during communication delay/blackout")
 
+
+class TelemetryHistoryPoint(BaseModel):
+    """Historical telemetry trend point for time-series charts."""
+    model_config = ConfigDict(extra="ignore")
+
+    time_label: str = Field(description="Relative mission timestamp, e.g. 'T-11h', 'T-0h'")
+    heart_rate_bpm: float = Field(description="Heart rate in bpm")
+    systolic_bp: float = Field(description="Systolic blood pressure in mmHg")
+    diastolic_bp: float = Field(description="Diastolic blood pressure in mmHg")
+    spo2_pct: float = Field(description="Oxygen saturation SpO2 in %")
+    water_intake_ml: float = Field(description="Cumulative water intake in mL")
+    urine_specific_gravity: float = Field(description="Urine specific gravity refractometry measure")
+
+
+class BootstrapResponse(BaseModel):
+    """Initial payload to bootstrap the mission control and astronaut UI."""
+    model_config = ConfigDict(extra="ignore")
+
+    baseline: PersonalBaseline
+    habitats: Dict[HabitatType, HabitatProfile]
+    measurement_guides: List[MeasurementGuide]
+    initial_evaluation: EvaluationResponse
+    initial_telemetry: TelemetryPayload
+    history: List[TelemetryHistoryPoint]
+
+
+class ScenarioResponse(BaseModel):
+    """Scenario preset data response containing telemetry, evaluation, and history."""
+    model_config = ConfigDict(extra="ignore")
+
+    habitat: HabitatType
+    scenario: ScenarioType
+    telemetry: TelemetryPayload
+    evaluation: EvaluationResponse
+    history: List[TelemetryHistoryPoint]
+
+

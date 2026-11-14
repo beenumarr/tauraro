@@ -120,3 +120,31 @@ export interface EvaluationResponse {
   store_and_forward_queue_count: number;
 }
 
+export interface TelemetryHistoryPoint {
+  time_label: string;
+  heart_rate_bpm: number;
+  systolic_bp: number;
+  diastolic_bp: number;
+  spo2_pct: number;
+  water_intake_ml: number;
+  urine_specific_gravity: number;
+}
+
+export interface BootstrapResponse {
+  baseline: PersonalBaseline;
+  habitats: Record<HabitatType, HabitatProfile>;
+  measurement_guides: MeasurementGuide[];
+  initial_evaluation: EvaluationResponse;
+  initial_telemetry: TelemetryPayload;
+  history: TelemetryHistoryPoint[];
+}
+
+export interface ScenarioResponse {
+  habitat: HabitatType;
+  scenario: ScenarioType;
+  telemetry: TelemetryPayload;
+  evaluation: EvaluationResponse;
+  history: TelemetryHistoryPoint[];
+}
+
+
