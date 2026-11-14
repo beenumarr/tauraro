@@ -298,6 +298,8 @@ export async function evaluateTelemetry(payload: TelemetryPayload): Promise<Eval
   return clientEvaluate(payload, DEFAULT_BASELINE);
 }
 
+export const evaluateCustomTelemetry = evaluateTelemetry;
+
 export async function fetchCopilotInsight(
   telemetry: TelemetryPayload,
   evaluation?: EvaluationResponse
